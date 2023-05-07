@@ -86,3 +86,35 @@ me.goTo = function(x=0, y=0)
     end if 
   end while
 end function
+
+// DOC - get latest tool status in inventory
+me.getTool = function(type)
+    return me.inventory.find(type, "type")
+end function
+
+
+// DOC - use watering tool to water, check watering can remaining water after action
+me.water = function()
+    tool = self.getTool("wateringcan")
+    
+    if not tool then 
+        log.error("Does not have watering can")
+        return
+    end if
+
+    // check water level before watering
+    if tool.waterLeft == 0 then
+        log.debug("Out of water.")
+        me.refillLocal()
+    end if   
+
+    
+    me.select(tool.name)
+    me.useTool
+
+    // check water level after watering
+    if tool.waterLeft == 0 then
+        log.debug("Out of water.")
+        me.refillLocal()
+    end if
+end function
