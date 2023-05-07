@@ -34,11 +34,28 @@ globals.importall = function(directory)
   // get all files and directory within path
   for module in allModules
     if module.indexOf(".ms") then
-      //trim extension and ensureImport .ms module, skip directories and other file type   
-      if not globals.hasIndex(module[0:module.len-3]) then
-        globals.importsafe(module[0:module.len-3])
-      else
-        globals.importsafe(directoryPath + "/" + module[0:module.len-3])
+      //trim extension and ensureImport .ms module, skip directories and other file type            
+      globals.importsafe(directoryPath + "/" + module[0:module.len-3])
+    end if
+  end for
+end function
+
+globals.importallNew = function(directory)
+  directoryPath = directory
+  
+  root = "/usr/lib"
+  allModules = file.children(root + "/" + directoryPath)
+
+  if not allModules then
+    print "Fail to importall for " + directoryPath
+    return
+  end if
+
+  // get all files and directory within path
+  for module in allModules
+    if module.indexOf(".ms") then
+      //trim extension and ensureImport .ms module, skip directories and other file type            
+      globals.importsafe(module[0:module.len-3])
     end if
   end for
 end function
