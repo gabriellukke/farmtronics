@@ -100,7 +100,7 @@ Test.runUnitTests = function
 		print "All tests passed.  Quality code!"
 	else
 		print errorCount + " error" + "s" * (errorCount!=1) + " found."
-	end if	
+	end if
 end function
 
 return Test
