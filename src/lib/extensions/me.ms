@@ -13,3 +13,11 @@ me.face = function(direction)
     me.left
   end while
 end function
+
+// DOC - move forward n steps
+me.steps = function(steps=1)
+  log.debug("me.steps: moving " + steps + " steps")
+  for i in range(1, steps)
+    me.forward
+  end for
+end function
