@@ -1,4 +1,5 @@
 import "config"
+import "main"
 
 importsafe "Test"
 importsafe "Log"
