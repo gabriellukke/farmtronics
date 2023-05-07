@@ -1,9 +1,6 @@
 import "config"
 import "main"
 
-importsafe "Test"
-importsafe "Log"
-
 if not me.isBot then
   print "startup.ms ran for home computer"
   exit
