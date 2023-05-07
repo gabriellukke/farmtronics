@@ -1,5 +1,6 @@
-isTile = function(x, y, tileType) 
-  print("isTile")
+tile = {}
+
+tile.is = function(x, y, tileType)
   tile = here.tile(x, y)
   if tile then        
     if tile.name.lower == tileType then
@@ -8,3 +9,5 @@ isTile = function(x, y, tileType)
     end if
   end if
 end function
+
+return tile

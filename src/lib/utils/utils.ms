@@ -1,2 +1,0 @@
-importsafe "Log"
-importsafe "Test"
